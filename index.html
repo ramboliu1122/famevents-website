@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAMEVENTS — Elevate Your Occasions</title>
+<meta name="description" content="上海繁门营销策划有限公司 — 专业活动策划与执行。服务保时捷、华为、捷豹路虎等全球品牌，20年深耕事件营销与体验式活动。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.display { font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif; }
+.sans-en { font-family: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+/* ── COLOR VARIABLES ── */
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --text: #ffffff;
+  --text-dim: rgba(255,255,255,0.55);
+  --text-faint: rgba(255,255,255,0.30);
+  --accent: #5a8fb5;
+  --accent-dim: rgba(90,143,181,0.15);
+  --border: rgba(255,255,255,0.08);
+  --border-light: rgba(255,255,255,0.12);
+}
+
+/* ── UTILITIES ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section-padding { padding: 8rem 0; }
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.grain-overlay {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.5rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+nav.scrolled { background: rgba(10,10,10,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1rem 2rem; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 900; letter-spacing: 0.06em; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+  text-decoration: none; transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+}
+.hero-inner { max-width: 860px; }
+.hero-tagline {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 2rem;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 300;
+  color: var(--text-dim); margin-bottom: 3rem; letter-spacing: 0.04em;
+}
+.hero-cta {
+  display: inline-block; padding: 0.9rem 2.8rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
+  background: rgba(90,143,181,0.18); border: 1px solid rgba(90,143,181,0.35);
+  border-radius: 100px; text-decoration: none;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+.hero-cta:hover { background: rgba(90,143,181,0.30); border-color: rgba(90,143,181,0.55); }
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  opacity: 0.4; transition: opacity 0.4s ease;
+}
+.hero-scroll:hover { opacity: 0.7; }
+.hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); }
+.hero-scroll-line { width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--text-faint), transparent); }
+
+/* ── ABOUT ── */
+.about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.about-label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.about-heading {
+  font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;
+  line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 2rem;
+}
+.about-text { font-size: 0.95rem; line-height: 1.85; color: var(--text-dim); }
+.about-text p + p { margin-top: 1.25rem; }
+
+/* ── STATS ── */
+.stats { background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.stat-item { text-align: center; padding: 1.5rem 0; }
+.stat-number {
+  font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900;
+  line-height: 1; color: var(--accent); margin-bottom: 0.5rem;
+}
+.stat-label { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--text-dim); text-transform: uppercase; }
+
+/* ── SERVICES ── */
+.services-heading {
+  text-align: center; margin-bottom: 5rem;
+}
+.services-heading .eyebrow { margin-bottom: 1rem; }
+.services-heading h2 {
+  font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.service-card {
+  background: var(--bg); padding: 3.5rem 2.5rem;
+  transition: background 0.4s ease;
+}
+.service-card:hover { background: #0f0f0f; }
+.service-icon {
+  font-size: 1.6rem; margin-bottom: 1.5rem; opacity: 0.7;
+}
+.service-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700;
+  margin-bottom: 0.35rem; letter-spacing: -0.01em;
+}
+.service-card .cn-title {
+  font-size: 0.9rem; font-weight: 500; color: var(--accent); margin-bottom: 1rem;
+}
+.service-card p {
+  font-size: 0.85rem; line-height: 1.75; color: var(--text-dim);
+}
+
+/* ── CLIENTS ── */
+.clients { background: var(--bg-elevated); border-top: 1px solid var(--border); }
+.clients-heading { text-align: center; margin-bottom: 4rem; }
+.clients-heading .eyebrow { margin-bottom: 1rem; }
+.clients-heading h2 {
+  font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.client-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.client-logo {
+  background: var(--bg); padding: 2.5rem 1.5rem; text-align: center;
+  font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1.1rem;
+  letter-spacing: 0.04em; color: var(--text-dim);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.client-logo:hover { color: var(--text); background: #0f0f0f; }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.contact-info h2 {
+  font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;
+  line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 2rem;
+}
+.contact-item { margin-bottom: 2rem; }
+.contact-label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.contact-value { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
+.contact-value a { color: var(--text-dim); text-decoration: none; transition: color 0.3s ease; }
+.contact-value a:hover { color: var(--text); }
+.contact-locations { display: flex; flex-direction: column; gap: 1.5rem; }
+.location-card {
+  border-left: 1px solid var(--border); padding-left: 1.5rem;
+  transition: border-color 0.4s ease;
+}
+.location-card:hover { border-color: rgba(90,143,181,0.4); }
+.location-card .city {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.location-card .role { font-size: 0.75rem; color: var(--accent); margin-bottom: 0.4rem; }
+.location-card .desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.65; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--bg-elevated); border-top: 1px solid var(--border);
+  padding: 2.5rem 0; text-align: center;
+  font-size: 0.72rem; color: var(--text-faint); letter-spacing: 0.06em;
+}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── DIVIDER ── */
+.divider { width: 1px; height: 3rem; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto 3rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .client-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 1.25rem; }
+  .section-padding { padding: 5rem 0; }
+  .hero-title { font-size: 3rem; }
+  .nav-links { display: none; }
+  .services-grid, .client-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+  .stat-number { font-size: 2.4rem; }
+  .about-heading, .services-heading h2, .clients-heading h2, .contact-info h2 { font-size: 2rem; }
+  .service-card { padding: 2.5rem 1.5rem; }
+  .contact-locations { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain-overlay"></div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">FAMEVENTS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner reveal">
+    <p class="hero-tagline">Shanghai Famevents · Est. 2014</p>
+    <h1 class="hero-title">FAMEVENTS</h1>
+    <p class="hero-subtitle">Elevate Your Occasions</p>
+    <a href="#contact" class="hero-cta">Work with Us</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-padding" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-label">About Famevents</p>
+        <h2 class="about-heading">让每一个活动<br>成为独特而难忘的<br>体验</h2>
+      </div>
+      <div class="about-text reveal reveal-delay-1">
+        <p>繁门营销 FAMEVENTS 致力于为全球活动代理公司提供专业、创新的活动策划和执行服务，构建逐渐广阔的合作网络，提供越发多元、跨地域的服务，满足客户不同的需求与期望。</p>
+        <p>凭借对信息通讯技术和汽车行业的深刻理解、先锋创新以及丰富经验积累，我们成功为 Porsche、JLR、BMW、梅赛德斯-奔驰等高端汽车厂商打造了诸多引人关注的线下体验式营销活动，以及华为、OPPO 等 3C 行业头部企业的大型会议与论坛。</p>
+        <p>全程服务、创新设计、合作共赢是我们的核心——确保每个活动都成为独特而难忘的体验。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats section-padding">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">年行业深耕</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number">3700</div>
+        <div class="stat-label">㎡ 制作中心</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">3</div>
+        <div class="stat-label">城市布局</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">服务品牌</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section-padding" id="services">
+  <div class="container">
+    <div class="services-heading reveal">
+      <p class="eyebrow">What We Offer</p>
+      <h2>全链路活动服务</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">◈</div>
+        <h3>Strategy</h3>
+        <p class="cn-title">策略</p>
+        <p>敏锐的洞察力和灵活的逻辑思维，从品牌目标出发，高效解决活动策划中的核心痛点。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">◈</div>
+        <h3>Design</h3>
+        <p class="cn-title">设计</p>
+        <p>创新的视觉设计和空间体验规划，打造令人难忘、具有影响力的品牌活动体验。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">◈</div>
+        <h3>Execution</h3>
+        <p class="cn-title">执行</p>
+        <p>周密的项目规划和精准的现场执行，处理每一个细节，确保无缝的活动交付。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">◈</div>
+        <h3>Media</h3>
+        <p class="cn-title">媒介</p>
+        <p>强大的媒介整合能力，最大化活动全周期的传播效果，实现品牌声量持续放大。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">◈</div>
+        <h3>Production</h3>
+        <p class="cn-title">制作</p>
+        <p>3700㎡ 自营制作中心，精湛制造工艺与严谨安装标准，打造活动的形象基石。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-icon">◈</div>
+        <h3>Exhibition</h3>
+        <p class="cn-title">展览</p>
+        <p>精心细致的品牌定制展示方案，通过展台设计与搭建激活品牌影响力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients section-padding" id="clients">
+  <div class="container">
+    <div class="clients-heading reveal">
+      <p class="eyebrow">Trusted By</p>
+      <h2>合作伙伴</h2>
+    </div>
+
+    <div class="reveal" style="margin-bottom: 3rem;">
+      <p class="eyebrow" style="text-align:center; margin-bottom:1.5rem;">Automotive · 汽车</p>
+      <div class="client-grid">
+        <div class="client-logo reveal">Porsche</div>
+        <div class="client-logo reveal reveal-delay-1">Jaguar Land Rover</div>
+        <div class="client-logo reveal reveal-delay-2">BMW</div>
+        <div class="client-logo reveal reveal-delay-3">Mercedes-Benz</div>
+        <div class="client-logo reveal reveal-delay-1">Audi</div>
+        <div class="client-logo reveal reveal-delay-2">Hyundai N</div>
+        <div class="client-logo reveal reveal-delay-3">Ferrari</div>
+        <div class="client-logo reveal reveal-delay-4">Škoda</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom: 3rem;">
+      <p class="eyebrow" style="text-align:center; margin-bottom:1.5rem;">Technology · 科技</p>
+      <div class="client-grid">
+        <div class="client-logo reveal">HUAWEI</div>
+        <div class="client-logo reveal reveal-delay-1">OPPO</div>
+        <div class="client-logo reveal reveal-delay-2">Alibaba</div>
+        <div class="client-logo reveal reveal-delay-3">Ant Group</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="eyebrow" style="text-align:center; margin-bottom:1.5rem;">Lifestyle & Luxury · 生活与奢侈品</p>
+      <div class="client-grid">
+        <div class="client-logo reveal">Bilibili</div>
+        <div class="client-logo reveal reveal-delay-1">Xiaohongshu</div>
+        <div class="client-logo reveal reveal-delay-2">Hermès</div>
+        <div class="client-logo reveal reveal-delay-3">Bulgari</div>
+        <div class="client-logo reveal reveal-delay-1">Jaeger-LeCoultre</div>
+        <div class="client-logo reveal reveal-delay-2">Lilly</div>
+        <div class="client-logo reveal reveal-delay-3">Zai Lab</div>
+        <div class="client-logo reveal reveal-delay-4">Bayer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-padding" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Get in Touch</p>
+        <h2>期待与您携手</h2>
+
+        <div class="contact-item">
+          <p class="contact-label">Address</p>
+          <p class="contact-value">上海市长宁区镇宁路465弄181号<br>1号楼5层</p>
+        </div>
+
+        <div class="contact-item">
+          <p class="contact-label">Contact</p>
+          <p class="contact-value">
+            <a href="tel:+8613910017247">139 1001 7247</a><br>
+            <a href="mailto:rambo.liu@famevents.cn">rambo.liu@famevents.cn</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-locations reveal reveal-delay-1">
+        <div class="location-card">
+          <p class="city">上海</p>
+          <p class="role">运营中枢 · 创始地</p>
+          <p class="desc">核心团队所在地，服务覆盖全国。策略、设计、执行与媒介业务中枢。</p>
+        </div>
+        <div class="location-card reveal reveal-delay-2">
+          <p class="city">北京</p>
+          <p class="role">策略创意中心</p>
+          <p class="desc">专注媒介公关、策略规划与创意设计，扩充业务广度与服务深度。</p>
+        </div>
+        <div class="location-card reveal reveal-delay-3">
+          <p class="city">南通</p>
+          <p class="role">制作中心</p>
+          <p class="desc">3700㎡ 厂区，精湛制造与严谨安装，为全国项目提供可靠的基础支持。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 FAMEVENTS 上海繁门营销策划有限公司</p>
+  </div>
+</footer>
+
+<script>
+// ── NAV SCROLL EFFECT ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── SMOOTH SCROLL FOR NAV LINKS ──
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
